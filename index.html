@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+<link href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Pirata+One" rel="stylesheet">
+	<link rel="stylesheet" href="dwarves.css">
+  <title>Awesome cast</title>
+</head>
+<body>
+  <header>
+    <img src="https://raw.githubusercontent.com/Dataloren/test-repository/master/erebor.png" alt="hobbit">
+    <h1>The dwarves of Erebor have returned</h1>
+  </header>
+    <div class="container">
+      <p>The company of Thorin Oakenshield had made it to Erebor. After the abortive attempt to kill Smaug, they were forced to watch its wrath destroying half of Lake Town, until Bard's bravery ended the dragon's life.</p>
+    </div>
+    <h2>But who are these brave and loyal friends, following Thorin to life or death?</h2>
+
+    <div class="col-sm-12">
+     <div id="panel1" class="panel panel-default">
+       <div class="panel-body">
+         <img src="https://raw.githubusercontent.com/Dataloren/test-repository/master/maxresdefault1.jpg" alt ="hobbit2">
+       </div>
+     </div>
+    </div>
+  
+    <div class="members">
+      <p>Choose your member of the company</p>
+    </div> 
+  
+     <div class="modal fade" id="myModal" role="dialog">
+       <div class="modal-dialog">
+         <div class="modal-content">
+       </div>
+      </div>
+     </div>
+  
+     <div class="listwrapper">  
+       <ul class="names">
+         <li id="team1" class="friends" data-id="1" data-target="#myModal">Thorin Oakenshield</li>
+         <li id="team2" class="friends" data-id="2" data-target="#myModal">Kíli</li>
+         <li id="team3" class="friends" data-id="3" data-target="#myModal">Fíli</li>
+         <li id="team4" class="friends" data-id="4" data-target="#myModal">Balin</li>
+         <li id="team5" class="friends" data-id="5" data-target="#myModal">Dwalin</li>
+         <li id="team6" class="friends" data-id="6" data-target="#myModal">Bifur</li>
+         <li id="team7" class="friends" data-id="7" data-target="#myModal">Bofur</li>
+         <li id="team8" class="friends" data-id="8" data-target="#myModal">Bombur</li>
+         <li id="team9" class="friends" data-id="9" data-target="#myModal">Óin</li>
+         <li id="team10" class="friends" data-id="10" data-target="#myModal">Glóin</li>
+         <li id="team11" class="friends" data-id="11" data-target="#myModal">Ori</li>
+         <li id="team12"class="friends" data-id="12" data-target="#myModal">Nori</li>
+         <li id="team13"class="friends" data-id="13" data-target="#myModal">Dori</li>
+         <li id="team14" class="friends" data-id="14" data-target="#myModal">Bilbo Baggins</li>
+         <li id="team15" class="friends" data-id="15" data-target="#myModal">Gandalf</li>
+       </ul>
+      </div>
+
+
+     <div id="footer">
+       <p class="text-muted credit">All images are copyright of their respective owners.</p>
+     </div>
+	<script>function company(name, weapon, age ){
+
+  this.name = name;
+  this.weapon = weapon;
+  this.age = age;
+
+}
+
+$(function(){
+
+var thorin = new company("Thorin Oakenshield", "Orcrist", 195);
+
+var kili = new company("Kíli", "bow", 77);
+
+var fili = new company("Fíli", "sword", 82);
+
+var dwalin = new company("Dwalin", "axe", 169);
+
+var balin = new company("Balin", "mace", 216);
+
+var bifur = new company ("Bifur", "boar spear", 178);
+
+var bofur = new company("Bofur", "mattock", 98);
+
+var bombur = new company("Bombur", "battle axe", 165);
+
+var oin = new company("Óin", "battle knife", 167);
+
+var gloin = new company("Glóin", "walking axe", 158);
+
+var ori = new company("Ori", "slingshot", 76);
+
+var dori = new company("Dori", "flail", 114);
+
+var nori = new company("Nori", "regal mace", 104);
+
+var bilbo = new company("Bilbo Baggins", "Sting", 51);
+
+var gandalf = new company("Gandalf", "Glamdring", "unknown");
+
+var newContent = [thorin, kili, fili, balin, dwalin, bifur, bofur, bombur, oin, gloin, ori, nori, dori, bilbo, gandalf];
+
+  $('.friends').on('click', function(){
+
+   var friendsNumber = $(this).attr("data-id")-1;
+
+   var friends = newContent[friendsNumber];
+
+  $("#myModal").modal();
+    $("#myModal .modal-content").html
+      ('is ' + friends.age + ' years old.' + ' ' + 'His weapon is the ' + friends.weapon + '.');
+
+  });
+});</script> 
+
+  </body>
+</html>
